@@ -1,0 +1,137 @@
+{
+	"swagger": "2.0",
+
+	"info": {
+		"version": "1.0.0",
+		"title": "My Numerical Project",
+		"description": "My Numerical Project Application API",
+		"termOfService": "http://swagger.io/terms/"
+	},
+
+	"securityDefinitions": {
+		"AuthToken": {
+			"type": "apiKey",
+			"name": "Authorization",
+			"in": "header",
+			"description": "The token for authentication"
+		}
+	},
+	"security": [
+		{
+			"AuthToken": []
+		}
+	],
+
+	"host": "localhost:5000",
+	"basePath": "/",
+	"schemes": ["http"],
+	"consumes": ["application/json"],
+	"produces": ["application/json"],
+
+	"paths": {
+		"/api/get-bisection": {
+			"get": {
+				"tags": ["bisection"],
+				"summary": "Get all root-equation in system",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Root"
+						}
+					}
+				}
+			}
+		},
+		"/api/get-onePoint": {
+			"get": {
+				"tags": ["one-point"],
+				"summary": "Get all one-point-equation in system",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/One-Point"
+						}
+					}
+				}
+			}
+		},
+		"/api/login": {
+			"post": {
+				"tags": ["Login"],
+				"description": "Login with user in system",
+				"parameters": [
+					{
+						"name": "user",
+						"in": "body",
+						"description": "User that we want to login",
+						"schema": {
+							"$ref": "#/definitions/Login"
+						}
+					}
+				],
+				"produces": ["application/json"],
+				"responses": {
+					"200": {
+						"description": "New user is created",
+						"schema": {
+							"$ref": "#/definitions/Login"
+						}
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"Root": {
+			"required": ["equation", "xl", "xr"],
+			"properties": {
+				"equation": {
+					"type": "string"
+				},
+				"xl": {
+					"type": "number"
+				},
+				"xr": {
+					"type": "number"
+				}
+			},
+			"example": {
+				"equation": "x^4-13",
+				"xl": "1.5",
+				"xr": "2"
+			}
+		},
+		"One-Point": {
+			"required": ["equation", "xm"],
+			"properties": {
+				"equation": {
+					"type": "string"
+				},
+				"xm": {
+					"type": "number"
+				}
+			},
+			"example": {
+				"equation": "(1-0.5*x)/1.5",
+				"xm": "0.0"
+			}
+		},
+		"Login": {
+			"required": ["email", "password"],
+			"properties": {
+				"email": {
+					"type": "string"
+				},
+				"password": {
+					"type": "string"
+				}
+			},
+			"example": {
+				"email" : "Chytha@email.com",
+                "password" : "190342"
+			}
+		}
+	}
+}

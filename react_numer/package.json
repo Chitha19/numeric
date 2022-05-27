@@ -1,0 +1,20 @@
+{
+  "name": "react_numer",
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/THXWXT/react_numer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/THXWXT/react_numer/issues"
+  },
+  "homepage": "https://github.com/THXWXT/react_numer#readme"
+}
