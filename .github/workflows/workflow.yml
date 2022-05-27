@@ -17,7 +17,11 @@ jobs:
 
       - name: npm install
         working-directory: ./react_numer
-        run : npm install
+        run : npm 
+        
+        name: npm ci
+        working-directory: ./react_numer
+        run : npm ci
 
       - name: npm run build
         working-directory: ./react_numer
